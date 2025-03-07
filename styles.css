@@ -36,6 +36,15 @@ body {
     image-rendering: pixelated;
 }
 
+.banner .slider .item p {
+    opacity: 0; /* Hide paragraph text by default */
+    transition: opacity 0.5s ease;
+}
+
+.banner .slider .item.visible p {
+    opacity: 1; /* Show text for the front-facing image */
+}
+
 .btn {
     position: relative;
 }
@@ -50,7 +59,13 @@ body {
     left: 250px;
 }
 
-/* #toggleRight {
-    top: 25%;
-    left: 25%;
-} */
+.hidden {
+    display: none;
+}
+
+.banner .content {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    text-align: right;
+}
