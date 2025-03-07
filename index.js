@@ -1,35 +1,43 @@
-const slider = document.querySelector('.slider');
-const toggleNext = document.getElementById('toggleNext');
-const togglePrevious = document.getElementById('togglePrevious')
+const slider = document.querySelector(".slider");
+const toggleLeft = document.getElementById("toggleLeft");
+const toggleRight = document.getElementById("toggleRight")
 let isAnimating = false;
 let animationFrameId;
 let rotationAngle = 0;
 const numberOfImages = 8; // Number of images inside slider
 const angleBetweenImages = 360 / numberOfImages; // Angle between each image, in degrees
 
-function animateToNextImage() {
+function animateToLeft() {
     const targetAngle = rotationAngle + angleBetweenImages;
 
     function animate() {
         if (rotationAngle >= targetAngle) {
-            isAnimating = false; // Stop the animation
+            isAnimating = false; 
+            cancelAnimationFrame(animationFrameId); // Stop animation
+            setTimeout(() => { // Small delay to force re-render of images
+                slider.style.transform = `perspective(1000px) rotateX(-5deg) rotateY(${rotationAngle}deg)`;
+            }, 10); 
             return;
         }
 
-        rotationAngle += 0.5; // Increment the rotation angle (adjust speed here)
+        rotationAngle += 0.5; // Increment the rotation angle forwards (adjust speed here)
         slider.style.transform = `perspective(1000px) rotateX(-5deg) rotateY(${rotationAngle}deg)`;
         animationFrameId = requestAnimationFrame(animate);
     }
 
-    animate(); // Start the animation
+    animate(); // Start animation
 }
 
-function animateToPreviousImage() {
+function animateToRight() {
     const targetAngle = rotationAngle - angleBetweenImages;
     
     function animate() {
         if (rotationAngle <= targetAngle) {
-            isAnimating = false; // Stop the animation
+            isAnimating = false;
+            cancelAnimationFrame(animationFrameId); // Stop animation
+            setTimeout(() => { // Small delay to force re-render of images
+                slider.style.transform = `perspective(1000px) rotateX(-5deg) rotateY(${rotationAngle}deg)`;
+            }, 10); 
             return;
         }
 
@@ -38,35 +46,20 @@ function animateToPreviousImage() {
         animationFrameId = requestAnimationFrame(animate);
     }
 
-    animate(); // Start animation backwards
+    animate(); // Start animation
 
 }
 
-toggleNext.addEventListener('click', () => {
+toggleLeft.addEventListener('click', () => {
     if (!isAnimating) {
-        isAnimating = true; // Start the animation forwards
-        animateToNextImage();
-    } else {
-        cancelAnimationFrame(animationFrameId); // Stop the animation
-        isAnimating = false;
-
-        // Force a re-render to fix pixelation
-        setTimeout(() => {
-            slider.style.transform = `perspective(1000px) rotateX(-5deg) rotateY(${rotationAngle}deg)`;
-        }, 10); // Small delay to force re-render
-    }
+        isAnimating = true; // Start the animation one image to the left
+        animateToLeft();
+    } 
 });
 
-togglePrevious.addEventListener("click", () => {
+toggleRight.addEventListener("click", () => {
     if (!isAnimating) {
-        isAnimating = true; // Start the animation backwards
-        animateToPreviousImage();
-    } else {
-        cancelAnimationFrame(animationFrameId); // Stop the animation
-        isAnimating = false;
-
-        setTimeout(() => {
-            slider.style.transform = `perspective(1000px) rotateX(-5deg) rotateY(${rotationAngle}deg)`;
-        }, 10); // Small delay to force re-render
+        isAnimating = true; // Start the animation one image to the right
+        animateToRight();
     }
 })
