@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    background-color: white;
 }
 
 .banner {
@@ -17,7 +17,7 @@ body {
     top: 10%;
     left: calc(50% - 100px);
     transform-style: preserve-3d;
-    transform: perspective(1000px) rotateX(-5deg);
+    transform: perspective(1000px);
     will-change: transform; /* Optimization for rendering */
 }
 
@@ -26,12 +26,31 @@ body {
     inset: 0 0 0 0;
     transform: translateZ(0);
     transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(550px);
-    backface-visibility: hidden; /*Helps images not get distorted*/ 
+    backface-visibility: hidden; /* Helps with images being distorted after animation ends */ 
 }
 
 .banner .slider .item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    image-rendering: crisp-edges; /* Improve image quality */
+    image-rendering: pixelated;
 }
+
+.btn {
+    position: relative;
+}
+
+#toggleLeft {
+    top: 250px;
+    right: 250px;
+}
+
+#toggleRight {
+    top: 250px;
+    left: 250px;
+}
+
+/* #toggleRight {
+    top: 25%;
+    left: 25%;
+} */

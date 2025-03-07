@@ -15,13 +15,13 @@ function animateToLeft() {
             isAnimating = false; 
             cancelAnimationFrame(animationFrameId); // Stop animation
             setTimeout(() => { // Small delay to force re-render of images
-                slider.style.transform = `perspective(1000px) rotateX(-5deg) rotateY(${rotationAngle}deg)`;
-            }, 10); 
+                slider.style.transform = `perspective(1000px)  rotateY(${rotationAngle}deg)`;
+            }, 100); 
             return;
         }
 
         rotationAngle += 0.5; // Increment the rotation angle forwards (adjust speed here)
-        slider.style.transform = `perspective(1000px) rotateX(-5deg) rotateY(${rotationAngle}deg)`;
+        slider.style.transform = `perspective(1000px)  rotateY(${rotationAngle}deg)`;
         animationFrameId = requestAnimationFrame(animate);
     }
 
@@ -36,13 +36,13 @@ function animateToRight() {
             isAnimating = false;
             cancelAnimationFrame(animationFrameId); // Stop animation
             setTimeout(() => { // Small delay to force re-render of images
-                slider.style.transform = `perspective(1000px) rotateX(-5deg) rotateY(${rotationAngle}deg)`;
-            }, 10); 
+                slider.style.transform = `perspective(1000px)  rotateY(${rotationAngle}deg)`;
+            }, 100); 
             return;
         }
 
         rotationAngle -= 0.5; // Increment the rotation angle backwards (adjust speed here)
-        slider.style.transform = `perspective(1000px) rotateX(-5deg) rotateY(${rotationAngle}deg)`;
+        slider.style.transform = `perspective(1000px)  rotateY(${rotationAngle}deg)`;
         animationFrameId = requestAnimationFrame(animate);
     }
 
