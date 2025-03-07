@@ -1,5 +1,6 @@
 const slider = document.querySelector('.slider');
-const toggleButton = document.getElementById('toggleAnimation');
+const toggleNext = document.getElementById('toggleNext');
+const togglePrevious = document.getElementById('togglePrevious')
 let isAnimating = false;
 let animationFrameId;
 let rotationAngle = 0;
@@ -16,18 +17,34 @@ function animateToNextImage() {
         }
 
         rotationAngle += 0.5; // Increment the rotation angle (adjust speed here)
-        if (rotationAngle >= 360) rotationAngle = 0; // Reset after full rotation
-
-        slider.style.transform = `perspective(1000px) rotateX(-10deg) rotateY(${rotationAngle}deg)`;
+        slider.style.transform = `perspective(1000px) rotateX(-5deg) rotateY(${rotationAngle}deg)`;
         animationFrameId = requestAnimationFrame(animate);
     }
 
     animate(); // Start the animation
 }
 
-toggleButton.addEventListener('click', () => {
+function animateToPreviousImage() {
+    const targetAngle = rotationAngle - angleBetweenImages;
+    
+    function animate() {
+        if (rotationAngle <= targetAngle) {
+            isAnimating = false; // Stop the animation
+            return;
+        }
+
+        rotationAngle -= 0.5; // Increment the rotation angle backwards (adjust speed here)
+        slider.style.transform = `perspective(1000px) rotateX(-5deg) rotateY(${rotationAngle}deg)`;
+        animationFrameId = requestAnimationFrame(animate);
+    }
+
+    animate(); // Start animation backwards
+
+}
+
+toggleNext.addEventListener('click', () => {
     if (!isAnimating) {
-        isAnimating = true; // Start the animation
+        isAnimating = true; // Start the animation forwards
         animateToNextImage();
     } else {
         cancelAnimationFrame(animationFrameId); // Stop the animation
@@ -35,7 +52,21 @@ toggleButton.addEventListener('click', () => {
 
         // Force a re-render to fix pixelation
         setTimeout(() => {
-            slider.style.transform = `perspective(1000px) rotateX(-10deg) rotateY(${rotationAngle}deg)`;
+            slider.style.transform = `perspective(1000px) rotateX(-5deg) rotateY(${rotationAngle}deg)`;
         }, 10); // Small delay to force re-render
     }
 });
+
+togglePrevious.addEventListener("click", () => {
+    if (!isAnimating) {
+        isAnimating = true; // Start the animation backwards
+        animateToPreviousImage();
+    } else {
+        cancelAnimationFrame(animationFrameId); // Stop the animation
+        isAnimating = false;
+
+        setTimeout(() => {
+            slider.style.transform = `perspective(1000px) rotateX(-5deg) rotateY(${rotationAngle}deg)`;
+        }, 10); // Small delay to force re-render
+    }
+})
