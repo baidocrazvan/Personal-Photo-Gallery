@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Photo Album</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://unpkg.com/normalize.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="container gear-container">
+            <div class="gear-image">
+                <img id="gear-photo" src="./images/gear/instax1.jpg" alt="" />
+            </div>
+
+            <div class="gear-info">
+                <h2 id="gear-title">The wonderful Instax Mini Evo</h2>
+                <p id="gear-description">
+                    The instax Mini Evo is a quirky little camera,
+                    featuring a hybrid system which bridges the gap between analog and digital photography.
+                    Featuring a cold shoe and a tripod mount, this litte camera can be equipped for any kind of challenge.
+                    There is also an app which let's you send images directly to the image to print.
+                </p>
+            </div>
+        </div>
+
+        <div class="container gear-container">
+            <div class="gear-image">
+                <img id="gear-photo" src="./images/gear/Digimax2.webp" alt="" />
+            </div>
+
+            <div class="gear-info">
+                <h2 id="gear-title">Retro Revolution: The Samsung Digimax</h2>
+                <p id="gear-description">
+                    The Samsung Digimax line was a series of wonderful digital cameras, using the now defunct
+                    and sought-after CCD sensors of yesteryear. Before we had our modern phone cameras with incredible color accuracy, there were the digicams.
+                    Using CCD sensors for capturing images, although still digital, images give off a more 'analog' feel. Soft blurs and yellow-greenish hues characterise the images these cameras produce.
+                    Right now having a resurgence, the old digicams of yesteryear became sought after again, as more and more people appreciate the characterful imperfections they provide, in a world of perfectly crafted and edited social media posts.
+                    Paired with the nostalgia factor, the old digicams make every shoot seem like a dreamish sequence because of their imperfections.
+                </p>
+            </div>
+        </div>
+
+        <div class="carousel-container">
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                <div class="carousel-item active c-item">
+                    <img src="./images/digimax-album/STA60011.JPG" class="d-block w-100 c-img" alt="...">
+                </div>
+                <div class="carousel-item c-item">
+                    <img src="./images/digimax-album/STA60019.JPG" class="d-block w-100 c-img" alt="...">
+                </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        
+        
+        <button id="change-gear-button"></button>
+        <script src="script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+
+    
