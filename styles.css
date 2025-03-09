@@ -69,3 +69,43 @@ body {
     right: 5%;
     text-align: right;
 }
+
+.gear-container {
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gear-image {
+    flex: 1;
+    margin: 20px;
+    padding: 20px;
+}
+
+.gear-image img{
+    width: 100%;
+    border-radius: 8px;
+}
+
+.gear-info {
+    flex: 2;
+    text-align: justify;
+}
+
+.slider-wrapper {
+    position: relative;
+    max-width: 768px;
+    margin: 0 auto;
+}
+
+.slider {
+    display: flex;
+    aspect-ratio: 16/9;
+}
+
+.carousel-container {
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+}
+
