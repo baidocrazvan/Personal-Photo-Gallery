@@ -76,6 +76,8 @@ body {
 .gear-container {
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 80%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -83,11 +85,13 @@ body {
     flex: 1;
     margin: 20px;
     padding: 20px;
+    
 }
 
 .gear-image img{
     width: 100%;
     border-radius: 8px;
+    
 }
 
 .gear-info {
