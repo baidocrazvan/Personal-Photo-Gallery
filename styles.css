@@ -120,7 +120,7 @@ body {
     text-align: center;
 }
 
-.container {
+.gallery-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 300px;
@@ -177,7 +177,7 @@ body {
 
 
 @media screen and (max-width:1024px){
-    .container{
+    .gallery-container{
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: 200px;
     }
