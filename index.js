@@ -69,16 +69,44 @@ function updateVisibleText() { // make <p> items visible only when image is faci
     });
 }
 
-toggleLeft.addEventListener('click', () => {
+if (toggleLeft) {
+    toggleLeft.addEventListener('click', () => {
     if (!isAnimating) {
         isAnimating = true; // Start the animation one image to the left
         animateToLeft();
     } 
 });
+}
 
-toggleRight.addEventListener("click", () => {
+if (toggleRight) {
+    toggleRight.addEventListener("click", () => {
     if (!isAnimating) {
         isAnimating = true; // Start the animation one image to the right
         animateToRight();
     }
+});
+}
+
+
+
+// Modal 
+
+const modal = document.getElementById('myModal');
+const modalImage = document.getElementById('img01');
+const images = document.querySelectorAll('.myImg');
+const captionText = document.getElementById('caption')
+const span = document.getElementsByClassName("close")[0];
+
+images.forEach((image) => {
+    image.addEventListener('click', () => {
+        modal.style.display = "block";
+        modalImage.src = image.src;
+        captionText.innerHTML = image.alt;
+    })
 })
+
+if (span) {
+    span.addEventListener('click', () => {
+    modal.style.display="none";
+})
+}
