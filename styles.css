@@ -272,6 +272,10 @@ body {
     color: #ccc;
     padding: 10px 0;
     height: 150px;
+    font-size: 0.8rem;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-style: italic;
 }
 
 /* Modal animation  */
