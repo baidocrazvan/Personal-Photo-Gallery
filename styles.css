@@ -7,7 +7,8 @@ body {
 
 .banner {
     width: 100%;
-    height: 90vh;
+    height: 100vh;
+    min-height: 800px;
     text-align: center;
     overflow: hidden;
     position: relative;
@@ -15,9 +16,9 @@ body {
 
 .banner .slider {
     position: absolute;
-    width: 200px;
-    height: 300px;
-    top: 15%;
+    width: 210px;
+    height: 330px;
+    top: 20%;
     left: calc(50% - 100px);
     transform-style: preserve-3d;
     transform: perspective(1000px);
@@ -29,7 +30,7 @@ body {
     inset: 0 0 0 0;
     transform: translateZ(0);
     transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(550px);
-    backface-visibility: hidden; /* Helps with images being distorted after animation ends */ 
+    backface-visibility: hidden; 
 }
 
 .banner .slider .item img {
@@ -59,17 +60,18 @@ body {
     line-height: 1.2;
 }
 
-.btn {
+#toggleLeft,
+#toggleRight {
     position: relative;
 }
 
 #toggleLeft {
-    top: 250px;
+    top: 325px;
     right: 175px;
 }
 
 #toggleRight {
-    top: 250px;
+    top: 325px;
     left: 175px;
 }
 
@@ -88,17 +90,25 @@ body {
     @media only screen and (max-width: 590px) {
         .banner {
             height: 100vh;
+            min-height: 920px;
+            max-height: 1080px;
+            min-width: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-    
-        .banner .slider {
-            width: 150px;
-            height: 225px;
-            top: 20%;
-            left: calc(50% - 75px);
+        
+        .banner .slider{
+            position: absolute;
+            /* margin-top: 50px; */
+            width: 200px;
+            height: 300px;
+            /* top: 15;
+            left: calc(50% - 100px); */
         }
-    
+
         .banner .slider .item {
-            transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(400px);
+            transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(500px);
         }
     
         .banner .slider .item img {
@@ -113,17 +123,26 @@ body {
         .banner .slider .item.visible p {
             font-size: 0.7rem;
         }
-    
-        #toggleLeft {
-            top: 200px;
-            right: 30%;
+        
+        /* #toggleLeft {
+            top: 130px;
+            left: 0;
         }
     
         #toggleRight {
-            top: 200px;
-            left: 30%;
-        }
-    
+            top: 130px;
+            left: 0;
+        } */
+        
+        #toggleLeft,
+        #toggleRight {
+        
+        position: static; /* Reset absolute positioning */
+        z-index: 1;
+        cursor: pointer;
+        margin: 250px 0 20px; /* Fixed distance from the slider */
+        
+}
         .banner .content {
             bottom: 5%;
             right: 2%;
