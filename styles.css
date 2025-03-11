@@ -1,5 +1,5 @@
 
-html, body {
+body {
     background-color: white;
 }
 
@@ -7,7 +7,7 @@ html, body {
 
 .banner {
     width: 100%;
-    height: 100vh;
+    height: 90vh;
     text-align: center;
     overflow: hidden;
     position: relative;
@@ -46,6 +46,7 @@ html, body {
     font-family: "Open Sans", sans-serif;
     font-weight: 300;
     font-style: italic;
+    line-height: 1.2;
 }
 
 .banner .slider .item.visible p {
@@ -55,6 +56,7 @@ html, body {
     font-family: "Open Sans", sans-serif;
     font-weight: 300;
     font-style: italic;
+    line-height: 1.2;
 }
 
 .btn {
@@ -82,17 +84,52 @@ html, body {
     text-align: right;
 }
 
-@media only screen and (max-width: 590px){
-    #toggleLeft {
-        top: 250px;
-        right: 30%;
-    }
+
+    @media only screen and (max-width: 590px) {
+        .banner {
+            height: 100vh;
+        }
     
-    #toggleRight {
-        top: 250px;
-        left: 30%;
+        .banner .slider {
+            width: 150px;
+            height: 225px;
+            top: 20%;
+            left: calc(50% - 75px);
+        }
+    
+        .banner .slider .item {
+            transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(400px);
+        }
+    
+        .banner .slider .item img {
+            width: 100%;
+            height: 100%;
+        }
+    
+        .banner .slider .item p {
+            font-size: 0.7rem;
+        }
+
+        .banner .slider .item.visible p {
+            font-size: 0.7rem;
+        }
+    
+        #toggleLeft {
+            top: 200px;
+            right: 30%;
+        }
+    
+        #toggleRight {
+            top: 200px;
+            left: 30%;
+        }
+    
+        .banner .content {
+            bottom: 5%;
+            right: 2%;
+        }
     }
-}
+
 
 
 
@@ -105,8 +142,13 @@ html, body {
     /* max-width: 80%; */
     box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.1);
     gap: 30px;
-    margin-bottom: 50px;
+    
     padding-left: 0;
+}
+
+.gear-container:first-of-type{
+    padding-top: 60px;
+    margin-bottom: 50px;
 }
 
 @media screen and (max-width:991px) {
@@ -143,7 +185,7 @@ html, body {
 /* styling for digicam gallery */
 
 .gallery-container {
-    padding: 0px 18px 18px 18px;
+    padding: 0 18px 18px 18px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 300px;
@@ -178,6 +220,7 @@ html, body {
 .digicam-gallery h1 {
     margin: 0 0 8px 18px;
     font-family: "Libre Baskerville", serif;
+    padding-top:60px;
 }
 
 .w-2{
@@ -288,5 +331,7 @@ html, body {
 
 .navbar {
     position: fixed;
+    width: 100%;
     z-index: 1;
+    height: 60px;
 }
