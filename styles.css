@@ -18,12 +18,10 @@ body {
 }
 
 .banner .slider {
-    /* margin-top: -100px; */
+    margin-top: -250px;
     position: absolute;
     width: 200px;
     height: 300px;
-    /* top: 25%; */
-    /* left: calc(50% - 100px); */
     transform-style: preserve-3d;
     transform: perspective(1000px);
     will-change: transform; /* Optimization for rendering */
@@ -71,10 +69,12 @@ body {
 
 #toggleLeft {
     right: 190px;
+    bottom: 112.5px;
 }
 
 #toggleRight {
     left: 190px;
+    bottom: 112.5px;
 }
 
 .hidden {
@@ -278,7 +278,7 @@ body {
     color: #ccc;
     padding: 10px 0;
     height: 150px;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
     font-style: italic;
@@ -300,10 +300,10 @@ body {
 
 .close {
     position: absolute;
-    top: 50px;
+    top: 80px;
     right: 35px;
     color: #f1f1f1;
-    font-size: 40px;
+    font-size: 5rem;
     font-weight: bold;
     transition: 0.3s;
 }
@@ -401,7 +401,7 @@ body {
 
 /* 2k breakpoint */
 
-@media screen and (min-width: 2560px){
+@media screen and (min-width: 2560px) and (max-width:3839px){
     .navbar-title {
         font-size: 4rem;
     }
@@ -418,6 +418,14 @@ body {
 
     .banner .slider .item {
         transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(550px);
+    }
+
+    .banner .slider .item p {
+        font-size: 1.2rem;
+    }
+    
+    .banner .slider .item.visible p {
+        font-size: 1.2rem;
     }
 
     #toggleLeft, 
@@ -446,13 +454,13 @@ body {
         margin: auto;
         margin-top: 1%;
         width: 80%;
-        max-width: 2000px;
+        max-width: 1440px;
     }
 
     .close {
         top: 100px;
         right: 50px;
-        font-size: 100px;
+        font-size: 6rem;
     } 
 
     #caption {
@@ -469,7 +477,7 @@ body {
     /* navbar styling */
 
     .navbar-title {
-        font-size: 5rem;
+        font-size: 6rem;
     }
     
     .navbar-nav a {
@@ -479,7 +487,7 @@ body {
     /* instax gallery styling  */
     .banner .slider{
         position: absolute;
-        margin-top: -225px;
+        margin-top: -400px;
         width: 400px;
         height: 600px;
     }
@@ -488,23 +496,30 @@ body {
         transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(600px);
     }
 
+    .banner .slider .item p {
+        font-size: 1.6rem;
+    }
+    
+    .banner .slider .item.visible p {
+        font-size: 1.6rem;
+    }
+
     #toggleLeft,
     #toggleRight {
         width: 80px;
         height: 80px; 
-        height: 40px;
-        font-size: 2rem; 
         padding: 20px; 
     }
 
     #toggleLeft {
-        bottom: 110px;
-        right: 350px;
+        bottom: 200px;
+        right: 375px;
     }
 
     #toggleRight {
-        left: 350px;
-        bottom: 110px;
+        bottom: 200px;
+        left: 375px;
+        
     }
 
     #toggleLeft img,
@@ -513,17 +528,19 @@ body {
     }
 
     /* digicam styling */
+
+
     .modal-content {
         margin: auto;
         margin-top: 1%;
         width: 80%;
-        max-width: 1920px;
+        max-width: 2160px;
     }
 
     .close {
         top: 100px;
         right: 50px;
-        font-size: 180px;
+        font-size: 7rem;
     } 
 
     #caption {
