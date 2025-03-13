@@ -1,6 +1,10 @@
+html{
+    font-size: 16px;
+}
 
 body {
     background-color: white;
+    font-size: 1rem;
 }
 
 /* instax album styling */
@@ -96,16 +100,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* max-width: 80%; */
+    max-width: 80%;
     box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.1);
     gap: 30px;
-    
     padding-left: 0;
 }
 
 .gear-container:first-of-type{
-    padding-top: 60px;
+    margin-top: 100px;
     margin-bottom: 50px;
+    
 }
 
 .gear-image {
@@ -121,16 +125,21 @@ body {
     flex:2;
     text-align: center;
     padding: 0 20px 20px 20px;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 350;
-    
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    text-align: justify;
+    font-size: 1.1rem;
 }
 
 .gear-info h2 {
     margin-bottom: 40px;
-    font-family: "Libre Baskerville", serif;
-  font-weight: 400;
-  font-style: normal;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-style: normal;
 }
 
 /* styling for digicam gallery */
@@ -259,7 +268,7 @@ body {
 
 .navbar {
     width: 100%;
-    padding: 1.5rem 0;
+    padding: 24px 0;
 }
 
 /* Center the h1 element within the navbar */
@@ -291,102 +300,16 @@ body {
     font-size: 1.2rem;
 }
 
+/* @media queries  */
 
-
-
-/* Media quries  */
-
-/* @media screen and (max-width: 540px){
-    .gallery-container{
-        grid-template-columns: 1fr;
-        grid-auto-rows: 200px;
-    }
-    .w-2{
-        grid-column: span 1;
-    }
-    .w3{
-        grid-column: span 1;
-    }
-    .h3{
-        grid-row: span 3;
-    }
-    .h2{
-        grid-row: span 2;
-    }
-    .navbar-title {
-        font-size: 1rem;
-    }
-}
-
-
-@media only screen and (max-width: 590px) {
-    .banner {
-        height: 100vh;
-        min-height: 920px;
-        max-height: 1080px;
-        min-width: 450px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-        
-    .banner .slider{
-        position: absolute;
-        
-        width: 200px;
-        height: 300px;
-        
-    }
-
-    .banner .slider .item {
-        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(500px);
-    }
-    
-    .banner .slider .item img {
-        width: 100%;
-        height: 100%;
-    }
-    
-    .banner .slider .item p {
-        font-size: 0.7rem;
-    }
-
-    .banner .slider .item.visible p {
-        font-size: 0.7rem;
-    }
-        
-    #toggleLeft,
-    #toggleRight {
-        
-    position: static; 
-    z-index: 1;
-    cursor: pointer;
-    margin: 250px 0 20px; 
-    }
-
-    .banner .content {
-        bottom: 5%;
-        right: 2%;
-    }
-}
-
-
-@media only screen and (max-width: 700px){
-    .modal-content {
-        width: 90%;
-    }
-}
-
-*/
-
-@media screen and (min-width: 0px) and (max-width: 499.99px){
+@media screen and (max-width: 499.99px){
     .navbar-title {
         font-size: 1.3rem;
     }
 
     .navbar a {
-        font-size: 1rem;
-        padding: 20px 0;
+        font-size: 1.2rem;
+        padding: 10px 0;
     }
 
     .banner .slider{
@@ -468,7 +391,18 @@ body {
         font-weight: 400;
     }
 
+    .gear-container{
+        flex-direction: column;
+    }
 
+      .gear-info {
+        font-size: 0.9rem;
+    }
+
+    .gear-info h2 {
+        text-align: right;
+        margin-bottom: 20px;
+    }
 }
 
 @media screen and (min-width: 500px) and (max-width:991.99px){
@@ -478,24 +412,9 @@ body {
 
     .navbar a {
         font-size: 1.3rem;
-        padding: 20px 0;
     }
 
-    .gallery-container{
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 200px;
-    }
-    .w-2{
-        grid-column: span 1;
-    }
-
-    .w-3{
-        grid-column: span 2;
-    }
-    .gear-container{
-        flex-direction: column;
-    }
-
+    /* instax styling  */
     .banner .slider{
         margin-top: -150px;
         position: absolute;
@@ -540,6 +459,20 @@ body {
         top: 230px;
     }
 
+    /* digicam styling */
+    .gallery-container{
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px;
+    }
+
+    .w-2{
+        grid-column: span 1;
+    }
+
+    .w-3{
+        grid-column: span 2;
+    }
+
     .modal-content {
         width: 90%;
         max-width: 700px;
@@ -555,6 +488,16 @@ body {
         padding: 20px 0 0 0;
         font-size: 1rem;
         font-weight: 400;
+    }
+
+    /* gear styling */
+    .gear-container{
+        flex-direction: column;
+    }
+
+    .gear-info h2 {
+        text-align: center;
+        margin-bottom: 25px;
     }
 
 } 
@@ -625,8 +568,18 @@ body {
         left: 190px;
         bottom: 75px;
     }
+      /* gear styling */
+      .gear-info {
+        font-size: 0.8rem;
+    }
 
+    .gear-info h2 {
+        font-size: 1.7rem;
+        margin-bottom: 10px;
+        text-align: right;
+    }
 }
+
 
 @media screen and (min-width:1367px) and (max-width: 1600.99px) {
     .banner .slider {
@@ -668,6 +621,15 @@ body {
     #toggleRight{
         left: 190px;
         bottom: 75px;
+    }
+
+    /* gear styling */
+    .gear-info {
+        font-size: 0.9rem;
+    }
+
+    .gear-info h2 {
+        font-size: 1.9rem;
     }
 }
 
@@ -747,6 +709,15 @@ body {
         font-weight: 400;
     }
 
+    /* gear styling */
+    .gear-info {
+        font-size: 1.3rem;
+    }
+
+    .gear-info h2 {
+        font-size: 2.2rem;
+        margin-bottom: 50px;
+    }
 
 }
 
@@ -831,6 +802,23 @@ body {
         font-weight: 400;
     }
 
+    /* gear styling */
+    .gear-info {
+        font-size: 2rem;
+    }
+
+    .gear-info h2 {
+        font-size: 3rem;
+        margin-bottom: 60px;
+    }
 
 }
 
+/* In case user's browser uses display with DPR, reset it to default */
+
+@media screen and (min-resolution: 2dppx), screen and (min-resolution: 192dpi) {
+    html {
+        font-size: 16px; /* Reset base font size for high-DPI screens */
+    }
+
+}
