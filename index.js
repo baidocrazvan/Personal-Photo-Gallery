@@ -6,6 +6,9 @@ let animationFrameId;
 let rotationAngle = 0;
 const numberOfImages = 8; // Number of images inside slider
 const angleBetweenImages = 360 / numberOfImages; // Angle between each image, in degrees
+let touchStartX = 0;
+let touchEndX = 0;
+
 
 updateVisibleText();
 
@@ -69,6 +72,52 @@ function updateVisibleText() { // make <p> items visible only when image is faci
     });
 }
 
+function handleSwipe() {
+    // Minimum swipe distance to trigger 
+    const swipeThreshold = 50;
+    const swipeDistance = touchEndX - touchStartX;
+    console.log(swipeDistance);
+
+    // If swipe is over 50 swipe to the left, if it's under -50 swipe to the right
+    if (swipeDistance < -swipeThreshold) {
+        if (!isAnimating) {
+            isAnimating = true; 
+            animateToRight();
+        }
+    } else if (swipeDistance > swipeThreshold) {
+        if (!isAnimating) {
+            isAnimating = true;
+            animateToLeft();
+        } 
+    }
+}
+
+slider.addEventListener('touchstart', (event) => {
+    // Only the image currently facing the user has class .visible,
+    // if user swipes any other image it won't assign values to touchStartX/touchEndX and won't trigger the function
+    const visibleItem = event.target.closest('.item.visible');
+    if (visibleItem) {
+      touchStartX = event.touches[0].clientX
+    }
+  });
+  
+  slider.addEventListener('touchmove', (event) => {
+    const visibleItem = event.target.closest('.item.visible');
+    if (visibleItem) {
+      const touchX = event.touches[0].clientX;
+    }
+  });
+  
+  slider.addEventListener('touchend', (event) => {
+    const visibleItem = event.target.closest('.item.visible');
+    if (visibleItem) {
+      console.log('Touch ended on visible item:', visibleItem);
+      touchEndX = event.changedTouches[0].clientX;
+      handleSwipe();
+    }
+  });
+
+
 if (toggleLeft) {
     toggleLeft.addEventListener('click', () => {
     if (!isAnimating) {
@@ -86,6 +135,7 @@ if (toggleRight) {
     }
 });
 }
+
 
 
 
