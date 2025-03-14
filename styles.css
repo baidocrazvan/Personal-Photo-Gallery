@@ -267,13 +267,12 @@ body {
     cursor: pointer;
 }
 
-/* styling for navbar */
+/* Styling for navbar */
 
 
 .navbar {
     width: 100%;
-    padding: 16px 0;
-
+    padding: 0.85rem 0;
 }
 
 /* Center the h1 element within the navbar */
@@ -290,6 +289,7 @@ body {
     left: 50%;
     transform: translateX(-50%); 
     z-index: 1;
+    padding: 8px;
 }
 
 .navbar-nav .dropdown-menu {
@@ -298,12 +298,14 @@ body {
 }
 
 .navbar-nav a {
-    font-family: "Quicksand", sans-serif;
+    font-family: "Open sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     font-size: 1.2rem;
+    /* margin-left: 4px; */
 }
+
 
 /* styling for about page */
 
@@ -439,16 +441,25 @@ footer {
 /* @media queries  */
 
 @media screen and (max-width: 499.99px){
+    /* navbar styling */
     .navbar {
-        padding: 8px;
+        padding: 1rem;
     }
 
     .navbar-title{
         font-size: 1.5rem;
+        top: 12.5px;
     }
 
     .navbar a {
         font-size: 1.3rem;
+        background-color: none;
+    }
+
+    /* instax styling */
+    button.navbar-toggler {
+        border: none;
+        /* padding: 8px; */
     }
 
     .banner .slider{
@@ -496,6 +507,8 @@ footer {
         left: 10px;
         top: 200px;
     }
+
+    /* digicam styling */
     .gallery-container{
         grid-template-columns: 1fr;
         grid-auto-rows: 300px;
@@ -583,16 +596,22 @@ footer {
 }
 
 @media screen and (min-width: 500px) and (max-width:991.99px){
+    /* navbar styling  */
     .navbar {
-        padding: 8px;
+        padding: 1rem;
     }
 
     .navbar-title{
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+        top: 11px;
     }
 
     .navbar a {
         font-size: 1.3rem;
+    }
+
+    .navbar-collapse a:first-of-type {
+        margin-top: 1rem !important
     }
 
     /* instax styling  */
@@ -608,7 +627,7 @@ footer {
     }
 
     .banner .slider .item p {
-        padding: 0 1rem;
+        padding: 1rem;
         font-size: 0.8rem;
     }
     
@@ -722,16 +741,18 @@ footer {
 
 
 @media screen and (min-width: 992px) and (max-width: 1366.99px){
-    .banner .slider{
-        margin-top: -150px;
-    }
-
+    /* navbar styling */
     .navbar-title {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
     .navbar a {
         font-size: 1rem;
+    }
+    
+    /* instax styling */
+    .banner .slider{
+        margin-top: -150px;
     }
 
     .banner .slider .item.visible p {
@@ -744,6 +765,7 @@ footer {
         font-size: 0.6rem;
     }
 
+    /* digicam styling */
     .gallery-container{
         grid-template-columns: repeat(4, 1fr);
         grid-auto-rows: 500px;
@@ -788,7 +810,7 @@ footer {
     }
       /* gear styling */
       .gear-info {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .gear-info h2 {
@@ -830,12 +852,13 @@ footer {
 
 
 @media screen and (min-width:1367px) and (max-width: 1600.99px) {
+    /* instax styling */
     .banner .slider {
         margin-top: -150px;
     }
 
     .navbar-title {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
     }
 
     .navbar-nav a {
@@ -872,16 +895,12 @@ footer {
     }
 
     /* gear styling */
-    .gear-info {
-        font-size: 0.9rem;
-    }
-
     .gear-info h2 {
         font-size: 1.9rem;
     }
 
-    /* about page styling */
 
+    /* about page styling */
     .header-greet {
         font-size: 1.8rem;
         margin-bottom: 14px;
@@ -907,16 +926,17 @@ footer {
 
 
 /* 2k breakpoint */
-
 @media screen and (min-width: 2560px) and (max-width:3839.99px) {
+    /* navbar styling */
     .navbar-title {
-        font-size: 4rem;
+        font-size: 3rem;
     }
 
     .navbar-nav a {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
 
+    /* instax styling */
     .banner .slider{
         position: absolute;
         width: 300px;
@@ -991,19 +1011,22 @@ footer {
         margin-bottom: 50px;
     }
 
+    /* about styling */
+    section p {
+        font-size: 1.5rem;
+    }
 }
 
 /* 4k breakpoint */
 @media screen and (min-width: 3840px){
 
     /* navbar styling */
-
     .navbar-title {
-        font-size: 6rem;
+        font-size: 4rem;
     }
     
     .navbar-nav a {
-        font-size: 3rem;
+        font-size: 2.4rem;
     }
 
     /* instax gallery styling  */
@@ -1084,6 +1107,10 @@ footer {
         margin-bottom: 60px;
     }
 
+    /* about styling */
+    section p {
+        font-size: 2rem;
+    }    
 }
 
 /* In case user's browser uses display with DPR, reset base font to default */

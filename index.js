@@ -170,9 +170,7 @@ if (yearSpan) {
 function updateFooterPos() {
     const footer = document.querySelector('footer');
     const bodyHeight = document.body.clientHeight;
-    console.log(bodyHeight);
     const viewportHeight = window.innerHeight;
-    console.log(viewportHeight);
 
     if (bodyHeight <= viewportHeight) {
       footer.classList.add('footer-fixed');
@@ -184,3 +182,4 @@ function updateFooterPos() {
 window.addEventListener('load', updateFooterPos);
 
 window.addEventListener('resize', updateFooterPos);
+
