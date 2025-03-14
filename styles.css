@@ -272,7 +272,7 @@ body {
 
 .navbar {
     width: 100%;
-    padding: 15px 0;
+    padding: 16px 0;
 
 }
 
@@ -308,9 +308,10 @@ body {
 /* styling for about page */
 
 .header-container {
-    /* margin-top: 100px; */
+    margin: 0 auto;
     position: relative;
     height: 50vh;
+    width: 100%;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -321,11 +322,11 @@ body {
 .header-image {
     width: 50%;
     height: 100%;
-    object-fit:cover;
-    object-position:center;
+    object-fit: cover;
+    object-position:top;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-    border-radius: 5px;
+    border-radius: 8px;
     filter: blur(1px);
 }
 
@@ -342,8 +343,8 @@ body {
     font-style: normal;
     font-size: 2em;
     text-shadow:
-    1px 1px 1px #81b9f8, /* First shadow */
-    2px 2px 1px #81b9f8;
+    1px 1px 1px #066591, /* First shadow */
+    2px 2px 1px #066591;
 
  }
 
@@ -356,26 +357,24 @@ body {
     font-style: bold;
     font-size: 6em;
     color: #ffffff;
-    text-shadow: 0px 4px 0px #81b9f8;
     text-shadow: 
-    1px 1px 1px #81b9f8, /* First shadow */
-    2px 2px 1px #81b9f8, /* Second shadow */
-    3px 3px 1px #81b9f8, /* Third shadow */
-    4px 4px 1px #81b9f8, /* Fourth shadow */
-    5px 5px 1px #81b9f8, /* Fifth shadow */
-    6px 6px 1px #81b9f8, /* Sixth shadow */
-    7px 7px 1px #81b9f8, /* Seventh shadow */
-    8px 8px 1px #81b9f8, /* Eighth shadow */
-    9px 9px 1px #81b9f8, /* Ninth shadow */
-    10px 10px 1px #81b9f8, /* Tenth shadow */
-    20px 20px 30px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+    1px 1px 1px #066591, 
+    2px 2px 1px #066591, 
+    3px 3px 1px #066591, 
+    4px 4px 1px #066591, 
+    5px 5px 1px #066591, 
+    6px 6px 1px #066591, 
+    7px 7px 1px #066591, 
+    8px 8px 1px #066591, 
+    9px 9px 1px #066591, 
+    10px 10px 1px #066591; 
 }
 
 
 section p {
     max-width: 50%;
     margin: 0 auto;
-    padding: 1rem 0;
+    padding: 2rem 0 0 0;
     text-align: left;
     font-family: "Quicksand", sans-serif;
     font-optical-sizing: auto;
@@ -384,25 +383,26 @@ section p {
     text-align: justify;
 }
 
-/* section p:first-child {
-    padding: 2rem 0 2rem 0;
-} */
+.about-page {
+    padding-bottom: 50px;
+}
+
 
 /* styling for footer  */
 
 footer {
     width: 100%;
+    position: absolute;
     display: flex;
-    justify-content: space-between; /* Space between text and icons */
-    align-items: center; /* Vertically center the items */
-    padding: 10px 20px; /* Add padding */
-    background-color: #f8f9fa; /* Optional: Add a background color */
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0.625rem 1.25rem;
     font-size: 0.75rem;
   }
   
   .copyright {
     font-style: italic;
-    margin: 0; /* Remove default margin */
+    margin: 0;
     color: #666;
   }
   
@@ -412,12 +412,12 @@ footer {
     padding: 0;
     display: flex;
     justify-content: flex-end;
-    gap: 10px; /* Add spacing between icons */
+    gap: 1rem;
   }
   
   .social svg {
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
     color: #666; 
     transition: color 0.3s ease;
   }
@@ -439,13 +439,16 @@ footer {
 /* @media queries  */
 
 @media screen and (max-width: 499.99px){
-    .navbar-title {
-        font-size: 1.3rem;
+    .navbar {
+        padding: 8px;
+    }
+
+    .navbar-title{
+        font-size: 1.5rem;
     }
 
     .navbar a {
-        font-size: 1.2rem;
-        padding: 10px 0;
+        font-size: 1.3rem;
     }
 
     .banner .slider{
@@ -542,12 +545,48 @@ footer {
 
     /* about styling */
 
+    .header-container {
+        height: 30vh;
+    }
+
+    .header-image{
+        width: 100%;
+        height: 80%;
+        filter: blur(0.5px);
+    }
+
+    .header-greet {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    .header-title {
+        margin-top: 50px;
+        font-size: 3rem;
+        text-shadow: 
+        1px 1px 1px #066591, 
+        2px 2px 1px #066591, 
+        3px 3px 1px #066591, 
+        4px 4px 1px #066591, 
+        5px 5px 1px #066591;
+    }
+
     section p {
-        max-width: 80%;
+        max-width: 70%;
+        font-size: 1rem;
+        padding: 1.6rem 0 0 0;
+    }
+
+    section p:first-child {
+        padding-top: 0;
     }
 }
 
 @media screen and (min-width: 500px) and (max-width:991.99px){
+    .navbar {
+        padding: 8px;
+    }
+
     .navbar-title{
         font-size: 1.5rem;
     }
@@ -642,11 +681,43 @@ footer {
         margin-bottom: 25px;
     }
 
-    /* about styling */
-    section p {
-        max-width: 70%;
+    /* about page styling */
+
+    .header-container {
+        height: 40vh;
     }
 
+    .header-image{
+        width: 100%;
+        height: 80%;
+        filter: blur(0.7px);
+    }
+
+    .header-greet {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+
+    .header-title {
+        margin-top: 60px;
+        font-size: 3.2rem;
+        text-shadow: 
+        1px 1px 1px #066591, 
+        2px 2px 1px #066591, 
+        3px 3px 1px #066591, 
+        4px 4px 1px #066591, 
+        5px 5px 1px #066591;
+    }
+
+    section p {
+        max-width: 60%;
+        font-size: 1rem;
+        padding: 1.6rem 0 0 0;
+    }
+
+    section p:first-child{
+        padding-top: 0;
+    }
 } 
 
 
@@ -725,7 +796,37 @@ footer {
         margin-bottom: 10px;
         text-align: right;
     }
+
+    /* about page styling */
+
+    .header-image{
+        width: 100%;
+    }
+
+    .header-greet {
+        font-size: 1.6rem;
+        margin: 0;
+        margin-top: 10px;
+    }
+
+    .header-title {
+        margin-top: 80px;
+        font-size: 4.25rem;
+        text-shadow: 
+        1px 1px 1px #066591, 
+        2px 2px 1px #066591, 
+        3px 3px 1px #066591, 
+        4px 4px 1px #066591, 
+        5px 5px 1px #066591, 
+        6px 6px 1px #066591;
+    }
+
+    section p {
+        font-size: 1rem;
+        padding: 1.6rem 0 0 0;
+    }
 }
+
 
 
 @media screen and (min-width:1367px) and (max-width: 1600.99px) {
@@ -777,6 +878,30 @@ footer {
 
     .gear-info h2 {
         font-size: 1.9rem;
+    }
+
+    /* about page styling */
+
+    .header-greet {
+        font-size: 1.8rem;
+        margin-bottom: 14px;
+    }
+
+    .header-title {
+        margin-top: 60px;
+        font-size: 5rem;
+        text-shadow: 
+        1px 1px 1px #066591, 
+        2px 2px 1px #066591, 
+        3px 3px 1px #066591, 
+        4px 4px 1px #066591, 
+        5px 5px 1px #066591, 
+        6px 6px 1px #066591;
+    }
+
+    section p {
+        font-size: 1rem;
+        padding: 1.7rem 0 0 0;
     }
 }
 

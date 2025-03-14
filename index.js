@@ -167,11 +167,20 @@ if (yearSpan) {
 }
 
 // Set footer to fixed position if the page doesn't have scrolling
-window.addEventListener('load', () => {
+function updateFooterPos() {
     const footer = document.querySelector('footer');
     const bodyHeight = document.body.clientHeight;
+    console.log(bodyHeight);
     const viewportHeight = window.innerHeight;
+    console.log(viewportHeight);
+
     if (bodyHeight <= viewportHeight) {
       footer.classList.add('footer-fixed');
+    } else if (bodyHeight > viewportHeight) {
+        footer.classList.remove('footer-fixed');
     }
-  });
+  };
+
+window.addEventListener('load', updateFooterPos);
+
+window.addEventListener('resize', updateFooterPos);
