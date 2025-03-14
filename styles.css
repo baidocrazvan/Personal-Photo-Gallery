@@ -112,6 +112,10 @@ body {
     
 }
 
+.gear-container.second {
+    margin-bottom: 16px;
+}
+
 .gear-image {
     flex:1;
 }
@@ -268,7 +272,8 @@ body {
 
 .navbar {
     width: 100%;
-    padding: 24px 0;
+    padding: 15px 0;
+
 }
 
 /* Center the h1 element within the navbar */
@@ -303,9 +308,10 @@ body {
 /* styling for about page */
 
 .header-container {
+    /* margin-top: 100px; */
     position: relative;
     height: 50vh;
-    overflow:hidden;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -313,13 +319,14 @@ body {
   }
 
 .header-image {
-    width: 100%;
+    width: 50%;
     height: 100%;
     object-fit:cover;
     object-position:center;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
-    filter: blur(2px);
+    border-radius: 5px;
+    filter: blur(1px);
 }
 
 .header-greet, .header-title {
@@ -333,7 +340,11 @@ body {
     font-family: "Quicksand", sans-serif;
     font-weight: 400;
     font-style: normal;
-     font-size: 2em;
+    font-size: 2em;
+    text-shadow:
+    1px 1px 1px #81b9f8, /* First shadow */
+    2px 2px 1px #81b9f8;
+
  }
 
 
@@ -341,13 +352,89 @@ body {
     margin-top: 6rem;
     font-family: "Quicksand", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+    font-weight: 500;
+    font-style: bold;
     font-size: 6em;
-    letter-spacing: -0.02em;
     color: #ffffff;
     text-shadow: 0px 4px 0px #81b9f8;
+    text-shadow: 
+    1px 1px 1px #81b9f8, /* First shadow */
+    2px 2px 1px #81b9f8, /* Second shadow */
+    3px 3px 1px #81b9f8, /* Third shadow */
+    4px 4px 1px #81b9f8, /* Fourth shadow */
+    5px 5px 1px #81b9f8, /* Fifth shadow */
+    6px 6px 1px #81b9f8, /* Sixth shadow */
+    7px 7px 1px #81b9f8, /* Seventh shadow */
+    8px 8px 1px #81b9f8, /* Eighth shadow */
+    9px 9px 1px #81b9f8, /* Ninth shadow */
+    10px 10px 1px #81b9f8, /* Tenth shadow */
+    20px 20px 30px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
 }
+
+
+section p {
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 1rem 0;
+    text-align: left;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; 
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+/* section p:first-child {
+    padding: 2rem 0 2rem 0;
+} */
+
+/* styling for footer  */
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Space between text and icons */
+    align-items: center; /* Vertically center the items */
+    padding: 10px 20px; /* Add padding */
+    background-color: #f8f9fa; /* Optional: Add a background color */
+    font-size: 0.75rem;
+  }
+  
+  .copyright {
+    font-style: italic;
+    margin: 0; /* Remove default margin */
+    color: #666;
+  }
+  
+  .social {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; /* Add spacing between icons */
+  }
+  
+  .social svg {
+    width: 24px;
+    height: 24px;
+    color: #666; 
+    transition: color 0.3s ease;
+  }
+
+  .social svg:hover{
+    color: black;
+    transform: scale(1.2);
+  }
+
+  .footer-fixed {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+
 
 /* @media queries  */
 
@@ -452,6 +539,12 @@ body {
         text-align: right;
         margin-bottom: 20px;
     }
+
+    /* about styling */
+
+    section p {
+        max-width: 80%;
+    }
 }
 
 @media screen and (min-width: 500px) and (max-width:991.99px){
@@ -547,6 +640,11 @@ body {
     .gear-info h2 {
         text-align: center;
         margin-bottom: 25px;
+    }
+
+    /* about styling */
+    section p {
+        max-width: 70%;
     }
 
 } 
@@ -863,11 +961,10 @@ body {
 
 }
 
-/* In case user's browser uses display with DPR, reset it to default */
+/* In case user's browser uses display with DPR, reset base font to default */
 
 @media screen and (min-resolution: 2dppx), screen and (min-resolution: 192dpi) {
     html {
-        font-size: 16px; /* Reset base font size for high-DPI screens */
+        font-size: 16px;
     }
-
 }

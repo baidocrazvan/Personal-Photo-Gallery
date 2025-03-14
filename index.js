@@ -12,6 +12,7 @@ let touchEndX = 0;
 
 updateVisibleText();
 
+// Instax image animation
 function animateToLeft() {
     const targetAngle = rotationAngle + angleBetweenImages;
 
@@ -34,6 +35,7 @@ function animateToLeft() {
     animate(); // Start animation
 }
 
+// Instax image animation
 function animateToRight() {
     const targetAngle = rotationAngle - angleBetweenImages;
     
@@ -57,6 +59,7 @@ function animateToRight() {
 
 }
 
+// Caption text under each image in instax album
 function updateVisibleText() { // make <p> items visible only when image is facing the user
     const items = document.querySelectorAll('.slider .item');
     items.forEach((item, index) => {
@@ -72,6 +75,26 @@ function updateVisibleText() { // make <p> items visible only when image is faci
     });
 }
 
+// Left and right buttons
+if (toggleLeft) {
+    toggleLeft.addEventListener('click', () => {
+    if (!isAnimating) {
+        isAnimating = true; // Start the animation one image to the left
+        animateToLeft();
+    } 
+});
+}
+
+if (toggleRight) {
+    toggleRight.addEventListener("click", () => {
+    if (!isAnimating) {
+        isAnimating = true; // Start the animation one image to the right
+        animateToRight();
+    }
+});
+}
+
+// touch control
 function handleSwipe() {
     // Minimum swipe distance to trigger 
     const swipeThreshold = 50;
@@ -91,56 +114,31 @@ function handleSwipe() {
         } 
     }
 }
-
-slider.addEventListener('touchstart', (event) => {
-    // Only the image currently facing the user has class .visible,
-    // if user swipes any other image it won't assign values to touchStartX/touchEndX and won't trigger the function
-    const visibleItem = event.target.closest('.item.visible');
-    if (visibleItem) {
-      touchStartX = event.touches[0].clientX
-    }
-  });
-  
-  slider.addEventListener('touchmove', (event) => {
-    const visibleItem = event.target.closest('.item.visible');
-    if (visibleItem) {
-      const touchX = event.touches[0].clientX;
-    }
-  });
-  
-  slider.addEventListener('touchend', (event) => {
-    const visibleItem = event.target.closest('.item.visible');
-    if (visibleItem) {
-      console.log('Touch ended on visible item:', visibleItem);
-      touchEndX = event.changedTouches[0].clientX;
-      handleSwipe();
-    }
-  });
-
-
-if (toggleLeft) {
-    toggleLeft.addEventListener('click', () => {
-    if (!isAnimating) {
-        isAnimating = true; // Start the animation one image to the left
-        animateToLeft();
-    } 
-});
+// Add touch control
+if (slider) {
+    slider.addEventListener('touchstart', (event) => {
+        // Only the image currently facing the user has class .visible,
+        // if user swipes any other image it won't assign values to touchStartX/touchEndX and won't trigger the function
+        const visibleItem = event.target.closest('.item.visible');
+        if (visibleItem) {
+        // touch starting point
+        touchStartX = event.touches[0].clientX
+        }
+    });
+    
+    slider.addEventListener('touchend', (event) => {
+        const visibleItem = event.target.closest('.item.visible');
+        if (visibleItem) {
+        console.log('Touch ended on visible item:', visibleItem);
+        // touch ending point
+        touchEndX = event.changedTouches[0].clientX;
+        handleSwipe();
+        }
+    });
 }
-
-if (toggleRight) {
-    toggleRight.addEventListener("click", () => {
-    if (!isAnimating) {
-        isAnimating = true; // Start the animation one image to the right
-        animateToRight();
-    }
-});
-}
-
-
 
 
 // Modal 
-
 const modal = document.getElementById('myModal');
 const modalImage = document.getElementById('img01');
 const images = document.querySelectorAll('.myImg');
@@ -160,3 +158,20 @@ if (span) {
     modal.style.display="none";
 })
 }
+
+// Get year for span inside footer
+const year = new Date().getFullYear();
+const yearSpan = document.getElementById('year');
+if (yearSpan) {
+    yearSpan.textContent = year
+}
+
+// Set footer to fixed position if the page doesn't have scrolling
+window.addEventListener('load', () => {
+    const footer = document.querySelector('footer');
+    const bodyHeight = document.body.clientHeight;
+    const viewportHeight = window.innerHeight;
+    if (bodyHeight <= viewportHeight) {
+      footer.classList.add('footer-fixed');
+    }
+  });
