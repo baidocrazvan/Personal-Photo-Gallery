@@ -1,0 +1,1125 @@
+html{
+    font-size: 16px;
+}
+
+/* instax album styling */
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    min-height: 900px;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner .slider {
+    padding: 0;
+    margin-top: -250px;
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    will-change: transform; /* Optimization for rendering */
+}
+
+.banner .slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: translateZ(0);
+    transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(550px);
+    backface-visibility: hidden;
+}
+
+.banner .slider .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+}
+
+.banner .slider .item p {
+    opacity: 0; /* Hide paragraph text by default */
+    transition: opacity 0.5s ease;
+    font-size: 0.8rem;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.2;
+}
+
+.banner .slider .item.visible p {
+    opacity: 1; /* Show text for the front-facing image */
+    text-align:center;
+    font-size: 0.8rem;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.2;
+    user-select: none;
+}
+
+#toggleLeft,
+#toggleRight {
+    position: relative;
+}
+
+#toggleLeft {
+    right: 190px;
+    bottom: 112.5px;
+}
+
+#toggleRight {
+    left: 190px;
+    bottom: 112.5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.banner .content {
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    text-align: right;
+}
+
+/* styling for gear.html */
+.gear-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 80%;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.1);
+    gap: 30px;
+    padding-left: 0;
+}
+
+.gear-container:first-of-type{
+    margin-bottom: 50px;
+    
+}
+
+.gear-container.second {
+    margin-bottom: 16px;
+}
+
+.gear-image {
+    flex:1;
+}
+
+.gear-image img{
+    border-radius: 8px;
+    width: 100%;
+}
+
+.gear-info {
+    flex:2;
+    text-align: center;
+    padding: 0 20px 20px 20px;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+.gear-info h2 {
+    margin-bottom: 40px;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-style: normal;
+}
+
+/* styling for digicam gallery */
+.gallery-container {
+    padding: 60px 18px 18px 18px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 300px;
+    grid-gap: 16px;
+}
+
+.gallery-item{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.gallery-item .image{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.gallery-item .image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gallery-item .image img:hover {
+    opacity: 0.7;
+}
+
+
+.w-2{
+    grid-column: span 2;
+}
+
+.w-3{
+    grid-column: span 3;
+}
+
+.h-2{
+    grid-row: span 2;
+}
+
+/* Modal background  */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.9);
+}
+
+/* Modal image  */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 1000px;
+}
+
+/* Modal caption  */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+    font-size: 1rem;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-style: italic;
+}
+
+/* Modal animation  */
+.modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform: scale(1)}
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 80px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 5rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover, .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Center the h1 element within the navbar */
+.navbar-title {
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    margin: 0; 
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%);
+    user-select: none; 
+}
+
+h1.no-show {
+    display: none;
+}
+
+.navbar-nav .dropdown-menu {
+    position: absolute;
+    z-index: 5;
+}
+
+.navbar-nav a {
+    font-family: "Open sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2rem;
+}
+
+
+/* styling for about page */
+.header-container {
+    margin: 0 auto;
+    position: relative;
+    height: 50vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.header-image {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    object-position:top;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    border-radius: 8px;
+    filter: blur(1px);
+}
+
+.header-greet, .header-title {
+    position: absolute;
+    text-align: center;
+    color: white;
+    user-select: none;
+}
+
+.header-greet {
+    color: #E0E0E0;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
+    text-shadow:
+    1px 1px 1px #066591,
+    2px 2px 1px #066591,
+    3px 3px 1px #066591,
+    4px 4px 1px #066591;
+    transform: translateX(80px) translateY(15px);
+ }
+
+
+.header-title {
+    margin-top: 6rem;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: bold;
+    font-size: 6em;
+    color: #E0E0E0;
+    text-shadow: 
+    1px 1px 1px #066591, 
+    2px 2px 1px #066591, 
+    3px 3px 1px #066591, 
+    4px 4px 1px #066591, 
+    5px 5px 1px #066591, 
+    6px 6px 1px #066591, 
+    7px 7px 1px #066591, 
+    8px 8px 1px #066591, 
+    9px 9px 1px #066591, 
+    10px 10px 1px #066591; 
+}
+
+
+section p {
+    max-width: 50%;
+    margin: 0 auto;
+    padding: 2rem 0 0 0;
+    text-align: left;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400; 
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+/* .about-page {
+    padding-bottom: 50px;
+} */
+
+
+/* styling for footer  */
+footer {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0.625rem 1.25rem;
+    font-size: 0.75rem;
+  }
+  
+  .copyright {
+    font-style: italic;
+    margin: 0;
+    color: #666;
+  }
+  
+  .social {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  
+  .social svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #666; 
+    transition: color 0.3s ease;
+  }
+
+  .social svg:hover{
+    color: black;
+    transform: scale(1.2);
+  }
+
+  .footer-fixed {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  /* toggle button  */
+
+.toggle-container {
+    width: 48px;
+    height: 24px;
+    background-color: #ccc;
+    border-radius: 14px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-button {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.toggle-container.dark {
+    background-color: #333;
+}
+
+.toggle-container.dark .toggle-button {
+    transform: translateX(24px); /*Move slider to the right */
+}
+
+
+.dark{
+    background-color: #333;
+}
+
+
+/* @media queries  */
+@media screen and (max-width: 499.99px){
+
+    /* navbar styling */
+    .navbar-title{
+        font-size: 1.5rem;
+    }
+
+    .navbar a {
+        font-size: 1.3rem;
+    }
+
+    /* instax styling */
+    .banner .slider{
+        margin-top: -150px;
+        position: absolute;
+        width: 250px;
+        height: 370px;
+    }
+
+    .banner .slider .item {
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(450px);
+    }
+
+    .banner .slider .item p {
+        margin-top: -10px;
+        padding: 0 3rem;
+        font-size: 0.7rem;
+    }
+    
+    .banner .slider .item.visible p {
+        margin-top: -10px;
+        padding: 0 3rem;
+        font-size: 0.7rem;
+    }
+
+    #toggleLeft, 
+    #toggleRight {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        padding: 5px;
+    }
+
+    #toggleLeft img,
+    #toggleRight img {
+        width: 20px;
+    }
+
+    #toggleLeft {
+        right: 10px;
+        top: 200px;
+    }
+
+    #toggleRight{
+        left: 10px;
+        top: 200px;
+    }
+
+    /* digicam styling */
+    .gallery-container{
+        grid-template-columns: 1fr;
+        grid-auto-rows: 300px;
+    }
+    
+    .h-2 {
+        grid-row: span 1.2;
+    }
+
+    .w-2 {
+        grid-column: span 1;
+    }
+
+    .w-3 {
+        grid-column: span 1;
+    }
+
+    .modal-content {
+        margin-top: 2rem;
+        width: 80%;
+    }
+
+    .close {
+        top: 80px;
+        right: 15px;
+        font-size: 2.5rem;
+    } 
+
+    #caption {
+        padding: 20px 0 0 0;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .gear-container{
+        flex-direction: column;
+    }
+
+      .gear-info {
+        font-size: 0.9rem;
+    }
+
+    .gear-info h2 {
+        text-align: right;
+        margin-bottom: 20px;
+    }
+
+    /* about styling */
+    .header-container {
+        height: 30vh;
+    }
+
+    .header-image{
+        width: 100%;
+        height: 80%;
+        filter: blur(0.5px);
+    }
+
+    .header-greet {
+        font-size: 1.1rem;
+        text-shadow: 
+        1px 1px 1px #066591, 
+        2px 2px 1px #066591;
+        transform: translateX(110px) translateY(45px);
+    }
+
+    .header-title {
+        transform: translateX(70px) translateY(15px);
+        font-size: 3rem;
+        text-shadow: 
+        1px 1px 1px #066591, 
+        2px 2px 1px #066591, 
+        3px 3px 1px #066591, 
+        4px 4px 1px #066591, 
+        5px 5px 1px #066591;
+    }
+
+    section p {
+        max-width: 70%;
+        font-size: 1rem;
+        padding: 1.6rem 0 0 0;
+    }
+
+    section p:first-child {
+        padding-top: 0;
+    }
+
+    .copyright{
+        font-size: 0.6rem;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width:991.99px){
+
+    /* navbar styling  */
+    .navbar-title{
+        font-size: 1.8rem;
+        /* top: 11px; */
+    }
+
+    .navbar a {
+        font-size: 1.3rem;
+    }
+
+    /* instax styling  */
+    .banner .slider{
+        margin-top: -150px;
+        position: absolute;
+        width: 250px;
+        height: 375px;
+    }
+
+    .banner .slider .item {
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(450px);
+    }
+
+    .banner .slider .item p {
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .banner .slider .item.visible p {
+        font-size: 0.8rem;
+        padding: 1rem;
+    }
+
+    #toggleLeft, 
+    #toggleRight {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        padding: 5px;
+    }
+
+    #toggleLeft img,
+    #toggleRight img {
+        width: 20px;
+    }
+
+    #toggleLeft {
+        right: 10px;
+        top: 230px;
+    }
+
+    #toggleRight{
+        left: 10px;
+        top: 230px;
+    }
+
+    /* digicam styling */
+    .gallery-container{
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px;
+    }
+
+    .w-2{
+        grid-column: span 1;
+    }
+
+    .w-3{
+        grid-column: span 2;
+    }
+
+    .modal-content {
+        width: 90%;
+        max-width: 700px;
+    }
+
+    .close {
+        top: 75px;
+        right: 25px;
+        font-size: 3rem;
+    } 
+
+    #caption {
+        padding: 20px 0 0 0;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    /* gear styling */
+    .gear-container{
+        flex-direction: column;
+    }
+
+    .gear-info h2 {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    /* about page styling */
+    .header-container {
+        height: 40vh;
+    }
+
+    .header-image{
+        width: 100%;
+        height: 80%;
+        filter: blur(0.7px);
+    }
+
+    .header-greet {
+        font-size: 1.3rem;
+        transform: translateX(35px) translateY(8px);
+    }
+
+    .header-title {
+        margin-top: 60px;
+        font-size: 3.2rem;
+        text-shadow: 
+        1px 1px 1px #066591, 
+        2px 2px 1px #066591, 
+        3px 3px 1px #066591, 
+        4px 4px 1px #066591, 
+        5px 5px 1px #066591;
+    }
+
+    section p {
+        max-width: 60%;
+        font-size: 1rem;
+        padding: 1.6rem 0 0 0;
+    }
+
+    section p:first-child{
+        padding-top: 0;
+    }
+} 
+
+
+@media screen and (min-width: 992px) and (max-width: 1366.99px){
+    /* navbar styling */
+    .navbar-title {
+        font-size: 1.8rem;
+    }
+
+    .navbar a {
+        font-size: 1rem;
+    }
+    
+    /* instax styling */
+    .banner .slider{
+        margin-top: -150px;
+    }
+
+    .banner .slider .item.visible p {
+        margin-top: -25px;
+        font-size: 0.6rem;
+    }
+
+    .banner .slider .item p {
+        margin-top: -25px;
+        font-size: 0.6rem;
+    }
+
+    /* digicam styling */
+    .gallery-container{
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 500px;
+    }
+
+    .modal-content {
+        margin: auto;
+        margin-top: 1%;
+        width: 80%;
+        max-width: 700px;
+    }
+
+    .close {
+        top: 70px;
+        right: 25px;
+        font-size: 4rem;
+    } 
+
+    #caption {
+        padding: 20px 0 0 0;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+
+    .gallery-container{
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 250px;
+    }
+
+    .h-2 {
+        grid-row: span 2;
+    }
+
+    #toggleLeft {
+        right: 190px;
+        bottom: 75px;
+    }
+
+    #toggleRight{
+        left: 190px;
+        bottom: 75px;
+    }
+      /* gear styling */
+      .gear-info {
+        font-size: 0.9rem;
+    }
+
+    .gear-info h2 {
+        font-size: 1.7rem;
+        margin-bottom: 10px;
+        text-align: right;
+    }
+
+    /* about page styling */
+
+    .header-image{
+        width: 100%;
+    }
+
+    .header-greet {
+        font-size: 1.6rem;
+        transform: translateX(50px) translateY(15px);
+    }
+
+    .header-title {
+        margin-top: 80px;
+        font-size: 4.25rem;
+        text-shadow: 
+        1px 1px 1px #066591, 
+        2px 2px 1px #066591, 
+        3px 3px 1px #066591, 
+        4px 4px 1px #066591, 
+        5px 5px 1px #066591, 
+        6px 6px 1px #066591;
+    }
+
+    section p {
+        font-size: 1rem;
+        padding: 1.6rem 0 0 0;
+    }
+}
+
+
+
+@media screen and (min-width:1367px) and (max-width: 1600.99px) {
+    /* instax styling */
+    .banner .slider {
+        margin-top: -150px;
+    }
+
+    .navbar-title {
+        font-size: 1.9rem;
+    }
+
+    .navbar-nav a {
+        font-size: 1.1rem;
+    }
+
+
+    .banner .slider .item.visible p {
+        font-size: 0.7rem;
+    }
+
+    .banner .slider .item p {
+        font-size: 0.7rem;
+    }
+
+    .close {
+        top: 60px;
+        font-size: 4rem;
+    }
+
+    .modal-content{
+        max-width: 800px;
+    }
+
+
+    #toggleLeft {
+        right: 190px;
+        bottom: 75px;
+    }
+
+    #toggleRight{
+        left: 190px;
+        bottom: 75px;
+    }
+
+    /* gear styling */
+    .gear-info h2 {
+        font-size: 1.9rem;
+    }
+
+
+    /* about page styling */
+    .header-greet {
+        font-size: 1.8rem;
+        transform: translateX(70px) translateY(5px);
+    }
+
+    .header-title {
+        margin-top: 60px;
+        font-size: 5rem;
+        text-shadow: 
+        1px 1px 1px #066591, 
+        2px 2px 1px #066591, 
+        3px 3px 1px #066591, 
+        4px 4px 1px #066591, 
+        5px 5px 1px #066591, 
+        6px 6px 1px #066591;
+    }
+
+    section p {
+        font-size: 1rem;
+        padding: 1.7rem 0 0 0;
+    }
+}
+
+
+/* 2k breakpoint */
+@media screen and (min-width: 2560px) and (max-width:3839.99px) {
+    /* navbar styling */
+    .navbar-title {
+        font-size: 3rem;
+    }
+
+    .navbar-nav a {
+        font-size: 1.8rem;
+    }
+
+    /* instax styling */
+    .banner .slider{
+        position: absolute;
+        width: 300px;
+        height: 450px;
+    }
+
+    .banner .slider .item {
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(550px);
+    }
+
+    .banner .slider .item p {
+        font-size: 1.2rem;
+    }
+    
+    .banner .slider .item.visible p {
+        font-size: 1.2rem;
+    }
+
+    #toggleLeft, 
+    #toggleRight {
+        width: 60px;
+        height: 60px;
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    #toggleLeft img,
+    #toggleRight img {
+        width: 30px;
+    }
+
+    #toggleLeft {
+        right: 250px;
+    }
+
+    #toggleRight{
+        left: 250px;
+    }
+    
+    /* digicam styling */
+    .gallery-container{
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 500px;
+    }
+
+    .modal-content {
+        margin: auto;
+        margin-top: 1%;
+        width: 80%;
+        max-width: 1440px;
+    }
+
+    .close {
+        top: 80px;
+        right: 50px;
+        font-size: 6rem;
+    } 
+
+    #caption {
+        padding: 20px 0 0 0;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+
+    /* gear styling */
+    .gear-info {
+        font-size: 1.3rem;
+    }
+
+    .gear-info h2 {
+        font-size: 2.2rem;
+        margin-bottom: 50px;
+    }
+
+    /* about styling */
+    section p {
+        font-size: 1.5rem;
+    }
+}
+
+/* 4k breakpoint */
+@media screen and (min-width: 3840px){
+
+    /* navbar styling */
+    .navbar-title {
+        font-size: 4rem;
+    }
+    
+    .navbar-nav a {
+        font-size: 2.4rem;
+    }
+
+    /* instax gallery styling  */
+    .banner .slider{
+        position: absolute;
+        margin-top: -400px;
+        width: 400px;
+        height: 600px;
+    }
+
+    .banner .slider .item {
+        transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(600px);
+    }
+
+    .banner .slider .item p {
+        font-size: 1.6rem;
+    }
+    
+    .banner .slider .item.visible p {
+        font-size: 1.6rem;
+    }
+
+    #toggleLeft,
+    #toggleRight {
+        width: 80px;
+        height: 80px; 
+        padding: 20px; 
+    }
+
+    #toggleLeft {
+        bottom: 200px;
+        right: 375px;
+    }
+
+    #toggleRight {
+        bottom: 200px;
+        left: 375px;
+        
+    }
+
+    #toggleLeft img,
+    #toggleRight img {
+        width: 40px;
+    }
+
+    /* digicam styling */
+    .gallery-container{
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 800px;
+    }
+
+    .modal-content {
+        margin: auto;
+        margin-top: 1%;
+        width: 80%;
+        max-width: 2160px;
+    }
+
+    .close {
+        top: 100px;
+        right: 50px;
+        font-size: 7rem;
+    } 
+
+    #caption {
+        padding: 20px 0 0 0;
+        font-size: 3rem;
+        font-weight: 400;
+    }
+
+    /* gear styling */
+    .gear-info {
+        font-size: 2rem;
+    }
+
+    .gear-info h2 {
+        font-size: 3rem;
+        margin-bottom: 60px;
+    }
+
+    /* about styling */
+    section p {
+        font-size: 2rem;
+    }    
+}
+
+ .about-main, .gear-main {
+    padding-top: 60px;
+}
+
+/* In case user's browser uses display with DPR, reset base font to default */
+
+@media screen and (min-resolution: 2dppx), screen and (min-resolution: 192dpi) {
+    html {
+        font-size: 16px;
+    }
+}
