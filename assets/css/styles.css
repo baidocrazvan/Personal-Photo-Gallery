@@ -125,7 +125,7 @@ html{
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    text-align: justify;
+    text-align: left;
     font-size: 1.1rem;
 }
 
@@ -360,7 +360,7 @@ section p {
     font-optical-sizing: auto;
     font-weight: 400; 
     font-size: 1.2rem;
-    text-align: justify;
+    text-align: left;
 }
 
 /* .about-page {
